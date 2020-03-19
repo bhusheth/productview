@@ -3,16 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Card, CardDeck, Button, Col, Row } from 'react-bootstrap';
 import { removeProductFromFav } from '../actions/productAction'
-import logo from '../logo.svg';
 
 const FavList = (props) => {
     return (
         <CardDeck className='carDeck'>
-        {props.favList.length !== 0  ? props.favList.map((card, index) => {
+        {props.favList.length !== 0  ? props.favList.map((card) => {
             return(
                 <Col md={4} key={card.id}>
                 <Card>
-                <Card.Img variant='top' src={logo} height='200px' width='160px'/>
+                <Card.Img variant='top' alt={`${card.name}`} src={`${card.media.main.dynamic.url}`} height='200px' width='160px'/>
                 <Card.Body>
                     <Card.Title>
                         {card.name}
@@ -24,6 +23,9 @@ const FavList = (props) => {
                             </Row>
                             <Row>
                             Total Stock: {card.onlyXItemsLeftStockLevel}
+                            </Row>
+                            <Row>
+                            Price: {`${card.price.currencyCode}${card.price.retailPrice}`}
                             </Row>
                         </Col>
                     </Card.Text>

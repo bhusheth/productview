@@ -2,17 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Card, CardDeck, Button, Col, Row } from 'react-bootstrap';
-import { removeProductFromCart } from '../actions/productAction'
-import logo from '../logo.svg';
+import { removeProductFromCart } from '../actions/productAction';
 
 const CartComponent = (props) => {
     return (
         <CardDeck className='carDeck'>
-        {props.cartBucket.length !== 0  ? props.cartBucket.map((card, index) => {
+        {props.cartBucket.length !== 0  ? props.cartBucket.map((card) => {
             return(
                 <Col md={4} key={card.id}>
                 <Card>
-                <Card.Img variant='top' src={logo} height='200px' width='160px'/>
+                <Card.Img variant='top' alt={`${card.name}`} src={`${card.media.main.dynamic.url}`} height='200px' width='160px'/>
                 <Card.Body>
                     <Card.Title>
                         {card.name}
@@ -24,6 +23,9 @@ const CartComponent = (props) => {
                             </Row>
                             <Row>
                             Total Stock: {card.onlyXItemsLeftStockLevel}
+                            </Row>
+                            <Row>
+                            Price: {`${card.price.currencyCode}${card.price.retailPrice}`}
                             </Row>
                         </Col>
                     </Card.Text>
