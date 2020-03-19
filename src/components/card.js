@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Card, CardDeck, Button, Col, Row } from 'react-bootstrap';
+import { Card, CardDeck, Button, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import {
   setModal,
   setProduct,
   addToCart,
-  addProductToFav
+  addProductToFav,
+  removeProductFromFav
 } from '../actions/productAction';
 import '../App.css';
+import CardTitleAndText from './cardTitleAndText';
 
 const addProductToCart = (props, card) => {
   props.setModal();
@@ -32,7 +34,7 @@ class CardComponent extends React.PureComponent {
                     width="160px"
                   />
                   <Card.Body>
-                    <Card.Title>{card.name}</Card.Title>
+                    {/* <Card.Title>{card.name}</Card.Title>
                     <Card.Text>
                       <Col md={12}>
                         <Row>Designer: {card.designer}</Row>
@@ -42,20 +44,35 @@ class CardComponent extends React.PureComponent {
                           {`${card.price.currencyCode}${card.price.retailPrice}`}
                         </Row>
                       </Col>
-                    </Card.Text>
+                    </Card.Text> */}
+                    <CardTitleAndText card={card} />
                     <Button
                       variant="primary"
                       onClick={() => addProductToCart(this.props, card)}
                     >
                       Add to cart
                     </Button>
-                    <Button
-                      className="secondary-button"
-                      variant="secondary"
-                      onClick={() => this.props.addProductToFav(card, card.id)}
-                    >
-                      Add to Favourite
-                    </Button>
+                    {card.isFavorite ? (
+                      <Button
+                        className="secondary-button"
+                        variant="secondary"
+                        onClick={() =>
+                          this.props.removeProductFromFav(card, card.id)
+                        }
+                      >
+                        Remove Favorite
+                      </Button>
+                    ) : (
+                      <Button
+                        className="secondary-button"
+                        variant="secondary"
+                        onClick={() =>
+                          this.props.addProductToFav(card, card.id)
+                        }
+                      >
+                        Add Favorite
+                      </Button>
+                    )}
                   </Card.Body>
                 </Card>
               </Col>
@@ -74,12 +91,14 @@ const mapDispatchToProps = {
   setModal,
   setProduct,
   addToCart,
-  addProductToFav
+  addProductToFav,
+  removeProductFromFav
 };
 
 CardComponent.propTypes = {
   products: PropTypes.array.isRequired,
-  addProductToFav: PropTypes.func.isRequired
+  addProductToFav: PropTypes.func.isRequired,
+  removeProductFromFav: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardComponent);

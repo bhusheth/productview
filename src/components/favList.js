@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Card, CardDeck, Button, Col, Row } from 'react-bootstrap';
+import { Card, CardDeck, Button, Col } from 'react-bootstrap';
 import { removeProductFromFav } from '../actions/productAction';
+import CardTitleAndText from './cardTitleAndText';
 
 const FavList = props => (
   <CardDeck className="carDeck">
@@ -18,17 +19,7 @@ const FavList = props => (
               width="160px"
             />
             <Card.Body>
-              <Card.Title>{card.name}</Card.Title>
-              <Card.Text>
-                <Col md={12}>
-                  <Row>Designer: {card.designer}</Row>
-                  <Row>Total Stock: {card.onlyXItemsLeftStockLevel}</Row>
-                  <Row>
-                    Price:{' '}
-                    {`${card.price.currencyCode}${card.price.retailPrice}`}
-                  </Row>
-                </Col>
-              </Card.Text>
+              <CardTitleAndText card={card} />
               <Button
                 variant="secondary"
                 onClick={() => props.removeProductFromFav(card, card.id)}

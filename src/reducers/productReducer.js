@@ -64,6 +64,9 @@ export default function productReducer(state = initialState, action) {
     case REMOVE_PRODUCT_FROM_FAV:
       return {
         ...state,
+        allProucts: state.allProucts.map(content =>
+          content.id === action.id ? { ...content, isFavorite: false } : content
+        ),
         favList: state.favList.filter(item => item.id !== action.id)
       };
     default: {
