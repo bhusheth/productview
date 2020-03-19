@@ -18,8 +18,8 @@
   margin: 15px 15px 15px 0px !important;
 }
 
-.btn-secondary {
-  margin-left: 5px;
+.secondary-button {
+  margin-left: 10px;
 }
 
 h3 {
@@ -29,4 +29,11 @@ h3 {
 
 .card-img-top {
   border-bottom: 1px gray solid;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1400px) {
+  .secondary-button {
+    margin-top: 10px;
+    margin-left: 0px;
+  }
 }

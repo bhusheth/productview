@@ -16,22 +16,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const rootstore = configureStore();
 
 ReactDOM.render(
-    <Provider store={rootstore}>
-        <Row>
-            <Col md={12}>
-            <Router history={history}>
-            <NavBar />
-                <Switch>
-                    <Route path='/cart' component={CartComponent}/>
-                    <Route path='/fav' component={FavList} />
-                    <Route path='/' component={App}/>
-                </Switch>
-                </Router>
-            </Col>
-        </Row>
-    </Provider>, 
-    document.getElementById('root')
-    );
+  <Provider store={rootstore}>
+    <Row>
+      <Col md={12}>
+        <Router history={history}>
+          <NavBar />
+          <Switch>
+            <Route path="/cart" component={CartComponent} />
+            <Route path="/fav" component={FavList} />
+            <Route path="/" component={App} />
+          </Switch>
+        </Router>
+      </Col>
+    </Row>
+  </Provider>,
+  document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
