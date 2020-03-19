@@ -26,3 +26,7 @@ h3 {
   margin-left: 25px;
   color: red;
 }
+
+.card-img-top {
+  border-bottom: 1px gray solid;
+}

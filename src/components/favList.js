@@ -12,7 +12,7 @@ const FavList = (props) => {
             return(
                 <Col md={4} key={card.id}>
                 <Card>
-                <Card.Img variant='top' src={logo} height='100px' width='160px'/>
+                <Card.Img variant='top' src={logo} height='200px' width='160px'/>
                 <Card.Body>
                     <Card.Title>
                         {card.name}

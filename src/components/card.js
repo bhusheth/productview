@@ -18,9 +18,9 @@ class CardComponent extends React.PureComponent{
             <CardDeck className='carDeck'>
             {this.props.products !== undefined ? this.props.products.map((card) => {
                 return(
-                    <Col md={4} key={card.id}>
+                    <Col md={3} key={card.id}>
                     <Card>
-                    <Card.Img variant='top' src={logo} height='100px' width='160px'/>
+                    <Card.Img variant='top' src={logo} height='200px' width='160px'/>
                     <Card.Body>
                         <Card.Title>
                             {card.name}

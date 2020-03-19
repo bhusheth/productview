@@ -5,7 +5,7 @@ import { getAllProduct } from '../actions/productAction'
 import '../App.css';
 import ProductModal from './productModal';
 
-class App extends React.PureComponent {
+class App extends React.Component {
   componentDidMount() {
     this.props.getAllProduct();
   }
