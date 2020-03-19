@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 4. User can add product in favorite list and remove from favorite list.
 5. Favorite list is displayed while clicking on the fav tab on navigation bar.
 
-Link for codesandbox is following []
+Link for codesandbox is following [https://codesandbox.io/s/github/bhusheth/productview]
 
 For api http or https to work in codesandbox you need to enable the ### chrome://flags/#allow-insecure-localhost
 in chrome window.
